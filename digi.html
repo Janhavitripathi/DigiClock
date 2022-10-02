@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS clock</title>
+    <style type="text/css">
+        body{
+             
+            
+            background-image: url(https://c4.wallpaperflare.com/wallpaper/170/757/221/simple-background-wallpaper-preview.jpg);
+            
+            background-size:cover;
+
+        }
+        .clock{
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: white;
+            font-size: 100px;
+            text-shadow:0 0 10px rgb(10, 10, 10);
+            padding: 0px 5px 0 px 5px;
+
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div id="MyClockDisplay" class="clock"></div>
+
+    <script type="text/javascript" >
+
+        function showTime(){
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            var session ="AM"
+
+            if(h==0)
+            {
+               h=12 ;
+            }
+            if(h>12)
+            {
+               h=h-12 ;
+               session="PM";
+            }
+            if(h<10)
+            {
+               h= "0" +h ;
+            }
+            if(m<10)
+            {
+               m ="0" +m ;
+            }
+            if(s<10)
+            {
+               s ="0" +s ;
+            }
+            
+            var time = h + " : " + m +" : " + s +" "+session;
+            document.getElementById("MyClockDisplay").innerText = time ;
+            document.getElementById("MyClockDisplay").textContent = time ;
+
+            setTimeout(showTime,1000);
+        }
+
+       showTime();
+    </script>
+</body>
+</html>
